@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
+<h1>B O O K S</h1>
+	<table class="table table-striped">
 		<tr>
 		    <th>Author</th>
 		    <th>Title</th>
@@ -16,9 +18,12 @@
     		<td th:text="${book.author}"></td>
     		<td th:text="${book.title}"></td>
     		<td th:text="${book.isbn}"></td>
-    		<td th:text="${book.year}"></td>  		
+    		<td th:text="${book.year}"></td> 
+    		<td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-danger">Edit</a></td>  
+    		<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>  		
     	</tr>
      </table>
+     <a href="/add" class="btn btn-success">Add a book</a>
 
 </body>
 </html>
