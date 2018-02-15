@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.hh.kurssi.Bookstore.domain.Book;
 import fi.hh.kurssi.Bookstore.domain.BookRepository;
+import fi.hh.kurssi.Bookstore.domain.Category;
 import fi.hh.kurssi.Bookstore.domain.CategoryRepository;
 
 @Controller
@@ -55,14 +56,9 @@ public class BookController {
 	 @RequestMapping(value= "/edit/{id}", method=RequestMethod.GET)
 	 	public String editBook(@PathVariable("id") Long bookId, Model model) {
 		 	model.addAttribute("book", repository.findOne(bookId));
+		 	model.addAttribute("categories", catrepository.findAll());
 		 	return "editbook";
-	 }
-	 
-	 @RequestMapping(value = "/save/{id}", method = RequestMethod.POST)
-	    public String edit(@PathVariable("id") Long bookId, Book book, Model model){
-	        repository.save(book);
-	        return "redirect:../booklist";
-	    }    
+	 }  
 	
 
 }

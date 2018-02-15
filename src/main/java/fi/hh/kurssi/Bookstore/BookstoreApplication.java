@@ -24,6 +24,7 @@ public class BookstoreApplication {
 	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository catrepository) {
 		return (args) -> {
 			log.info("department names");
+			catrepository.save(new Category("  "));
 			catrepository.save(new Category("Science"));
 			catrepository.save(new Category("Fiction"));
 			catrepository.save(new Category("Cooking"));
