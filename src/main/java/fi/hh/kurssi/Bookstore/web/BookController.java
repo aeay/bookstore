@@ -1,5 +1,7 @@
 package fi.hh.kurssi.Bookstore.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,18 @@ public class BookController {
 	public String listBooks(Model model){
 		model.addAttribute("books", repository.findAll());
 		return "booklist";
+	}
+	
+	// REST service that returns all the books (JSON)
+	@RequestMapping(value="/books", method=RequestMethod.GET)
+	public @ResponseBody List<Book> bookListRest() {
+		return (List<Book>) repository.findAll();
+	}
+	
+	//REST service that return one book by id (JSON)
+	@RequestMapping(value="/books/{id}", method = RequestMethod.GET)
+	public @ResponseBody Book findBookRest(@PathVariable("id") Long bookId) {
+		return repository.findOne(bookId);
 	}
 	
 	 @RequestMapping(value = "/add")
