@@ -24,10 +24,9 @@ public class BookController {
 	@Autowired
 	private CategoryRepository catrepository;
 	
-	@ResponseBody
-	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String welcomeBookstore(){
-		return "Tervetuloa kirjakauppaan!";
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login(){
+		return "login";
 	}
 	
 	@RequestMapping(value="/booklist", method=RequestMethod.GET)
