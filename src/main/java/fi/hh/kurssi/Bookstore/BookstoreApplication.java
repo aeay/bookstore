@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import fi.hh.kurssi.Bookstore.domain.User;
+import fi.hh.kurssi.Bookstore.domain.UserRepository;
 import fi.hh.kurssi.Bookstore.domain.Book;
 import fi.hh.kurssi.Bookstore.domain.BookRepository;
 import fi.hh.kurssi.Bookstore.domain.Category;
@@ -21,7 +23,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository catrepository) {
+	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository catrepository, UserRepository urepository) {
 		return (args) -> {
 			log.info("department names");
 			catrepository.save(new Category("  "));
@@ -37,6 +39,13 @@ public class BookstoreApplication {
 			for (Book book : repository.findAll()) {
 				log.info(book.toString());
 			}
+			
+			User user1 = new User("user1", "$2a$04$a6kZsfR6dzgkMQY5k3naIuxhSl01EK1gA6YzH3pJDHMYfVQRLF6Qy", "user1@users.com", "USER");
+			User user2 = new User("user2", "$2a$04$Z287eJLugsd.j1701qWMp.b15bDgT.bV9oMWC87fjHUR3xN0CdmWS", "user2@users.com", "USER");
+			User user3 = new User("admin", "$2a$04$gCRR8b1/jArRCgTitevIVO9QgM/Nc0ofDCNZnc0smjUak9DwolNei", "admin@bookstore.com", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
+			urepository.save(user3);
 		};
 	}
 }
