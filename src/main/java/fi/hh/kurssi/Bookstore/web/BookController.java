@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.hh.kurssi.Bookstore.domain.Book;
 import fi.hh.kurssi.Bookstore.domain.BookRepository;
-import fi.hh.kurssi.Bookstore.domain.Category;
 import fi.hh.kurssi.Bookstore.domain.CategoryRepository;
 
 @Controller

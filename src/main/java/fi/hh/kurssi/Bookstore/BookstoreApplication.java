@@ -40,11 +40,12 @@ public class BookstoreApplication {
 				log.info(book.toString());
 			}
 			
-			User user1 = new User("user1", "$2a$04$a6kZsfR6dzgkMQY5k3naIuxhSl01EK1gA6YzH3pJDHMYfVQRLF6Qy", "user1@users.com", "USER");
 			User user2 = new User("user2", "$2a$04$Z287eJLugsd.j1701qWMp.b15bDgT.bV9oMWC87fjHUR3xN0CdmWS", "user2@users.com", "USER");
-			User user3 = new User("admin", "$2a$04$gCRR8b1/jArRCgTitevIVO9QgM/Nc0ofDCNZnc0smjUak9DwolNei", "admin@bookstore.com", "ADMIN");
-			urepository.save(user1);
+			User user1 = new User("user1", "$2a$04$iRlYk.DM1TjjJiaC5HAK9OLckN64vQW3t1MzEkkT.1ljKHDewzELS", "user1@users.com", "USER");
+			
+			User user3 = new User("admin", "$2a$04$iw6lfvK6LFWMMsEKuBGVOu.J.PxWJuGxIl916elcjaVZCiqsNlx4q", "admin@bookstore.com", "ADMIN");
 			urepository.save(user2);
+			urepository.save(user1);
 			urepository.save(user3);
 		};
 	}
